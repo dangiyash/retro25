@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yash Dangi</title>
+  <meta name="description" content="Portfolio of Yash Dangi - B.Tech, NIT Bhopal. Projects, achievements, and experience in tech, web, and AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='transparent'/%3E%3Crect x='3' y='2' width='2' height='2' fill='%232d5c88'/%3E%3Crect x='11' y='2' width='2' height='2' fill='%232d5c88'/%3E%3Crect x='5' y='4' width='2' height='2' fill='%232d5c88'/%3E%3Crect x='9' y='4' width='2' height='2' fill='%232d5c88'/%3E%3Crect x='7' y='6' width='2' height='6' fill='%232d5c88'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --retro-bg: #f4f1ee;
+      --retro-card: #e0d6c3;
+      --retro-border: #7a5c3a;
+      --retro-border-accent: #b7a99a;
+      --retro-accent: #3a2e25;
+      --retro-title: #2d1e12;
+      --retro-muted: #6d5c4d;
+      --retro-link: #2d5c88;
+      --font-main: 'Roboto Mono', 'Courier New', Courier, monospace;
+      --font-title: 'Press Start 2P', 'Courier New', Courier, monospace;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: transparent !important;
+      color: var(--retro-accent);
+      font-family: var(--font-main);
+      letter-spacing: 0.01em;
+      scroll-behavior: smooth;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+    header {
+      width: 100%;
+      padding: 2rem 0 1rem 0;
+      text-align: center;
+      background: transparent;
+    }
+    .retro-title {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      color: var(--retro-title);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.2em;
+      text-shadow: 1px 1px 0 #fffbe7, 2px 2px 0 #b7a99a;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--retro-muted);
+      margin-bottom: 0.5em;
+      font-family: var(--font-main);
+    }
+    .main-grid {
+      display: grid;
+      grid-template-columns: 0.6fr 2.4fr;
+      gap: 2rem;
+      grid-gap: 2rem;
+      width: 95%;
+      max-width: 1100px;
+      margin: 0 auto 2rem auto;
+      min-height: 60vh;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      overflow-wrap: break-word;
+    }
+    .column:first-child > section {
+      max-width: 100%;
+    }
+    .column:last-child > section {
+      width: 100%;
+    }
+    section {
+      background: #e0d6c3;
+      border: 4px solid var(--retro-border-accent);
+      border-radius: 0;
+      box-shadow: none;
+      padding: 1.1rem 1.1rem 1.1rem 1.1rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    h2 {
+      font-family: var(--font-title);
+      color: var(--retro-title);
+      font-size: 1.1rem;
+      margin-bottom: 0.7em;
+      text-shadow: 1px 1px 0 #fffbe7;
+      letter-spacing: 0.05em;
+    }
+    .project-list, .blog-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .project-item, .blog-item {
+      margin-bottom: 1.1em;
+      padding-bottom: 0.7em;
+      border-bottom: 1px dashed var(--retro-border);
+    }
+    .project-item:last-child, .blog-item:last-child {
+      border-bottom: none;
+    }
+    .project-title, .blog-title {
+      font-weight: bold;
+      font-family: var(--font-title);
+      font-size: 1em;
+      color: var(--retro-link);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 0.2em;
+      transition: color 0.2s;
+    }
+    .project-title:hover, .blog-title:hover {
+      color: var(--retro-title);
+      text-decoration: underline;
+    }
+    .project-desc, .blog-desc {
+      font-size: 0.97em;
+      color: var(--retro-accent);
+      margin-left: 0.2em;
+      margin-bottom: 0.2em;
+      font-family: var(--font-main);
+    }
+    ul, ol {
+      padding-left: 1.2em;
+      margin: 0.2em 0 0.7em 0;
+    }
+    li {
+      margin-bottom: 0.4em;
+      line-height: 1.5;
+    }
+    .achievements li::before {
+      content: '• ';
+      color: var(--retro-muted);
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7em;
+      margin-bottom: 0.5em;
+    }
+    .skills-list span {
+      background: #ede5d8;
+      color: var(--retro-accent);
+      border: 1px solid var(--retro-border);
+      border-radius: 4px;
+      padding: 0.2em 0.7em;
+      font-size: 0.95em;
+      margin-bottom: 0.2em;
+      font-family: var(--font-main);
+    }
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7em;
+      margin-bottom: 0.5em;
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 1.2em;
+      color: var(--retro-accent);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0.1em;
+      top: 0.7em;
+      width: 0.6em;
+      height: 0.6em;
+      background: var(--retro-border);
+      border-radius: 50%;
+      box-shadow: 1px 1px 0 #fffbe7;
+    }
+    .exp-role {
+      color: var(--retro-link);
+      font-weight: bold;
+    }
+    .exp-org {
+      color: var(--retro-muted);
+      font-style: italic;
+    }
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2em;
+      margin-bottom: 1.2em;
+    }
+    .contact a, .contact span {
+      color: var(--retro-link);
+      text-decoration: none;
+      font-size: 1rem;
+      background: #ede5d8;
+      border: 1px solid var(--retro-border);
+      border-radius: 6px;
+      padding: 0.3em 0.9em;
+      margin: 0.2em;
+      font-family: var(--font-main);
+      box-shadow: 1px 1px 0 #b7a99a;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+    .contact a:hover {
+      color: var(--retro-title);
+      background: #fffbe7;
+      box-shadow: 2px 2px 0 #b7a99a;
+    }
+    /* Contact Form Styles */
+    .contact-form-section {
+      background: #e0d6c3;
+      border: 4px solid var(--retro-border-accent);
+      border-radius: 0;
+      box-shadow: none;
+      padding: 1.1rem 1.1rem 1.1rem 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+    .contact-form-section h2 {
+      margin-bottom: 1em;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    .contact-form label {
+      font-family: var(--font-main);
+      font-size: 1em;
+      color: var(--retro-accent);
+      margin-bottom: 0.2em;
+    }
+    .contact-form input, .contact-form textarea {
+      font-family: var(--font-main);
+      font-size: 1em;
+      border: 1px solid var(--retro-border);
+      border-radius: 4px;
+      padding: 0.5em;
+      background: #f9f6f2;
+      color: var(--retro-accent);
+      resize: vertical;
+      box-shadow: 1px 1px 0 #b7a99a;
+    }
+    .contact-form textarea {
+      min-height: 80px;
+      max-height: 200px;
+    }
+    .contact-form button {
+      font-family: var(--font-title);
+      font-size: 1em;
+      background: var(--retro-link);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.6em 1.2em;
+      cursor: pointer;
+      box-shadow: 1px 1px 0 #b7a99a;
+      transition: background 0.2s;
+    }
+    .contact-form button:hover {
+      background: var(--retro-title);
+    }
+    @media (max-width: 1000px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .column {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+    }
+    @media (max-width: 700px) {
+      .main-grid { width: 99%; }
+      section { padding: 1em 0.5em; }
+      .retro-title { font-size: 1.3rem; }
+    }
+    .blog-content {
+      background: var(--retro-card);
+      border: 2px solid var(--retro-border);
+      border-radius: 10px;
+      box-shadow: 2px 2px 0 #b7a99a;
+      padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-main);
+      color: var(--retro-accent);
+      max-width: 100%;
+      animation: fadeIn 0.3s;
+    }
+    .blog-content h2 {
+      font-family: var(--font-title);
+      color: var(--retro-title);
+      font-size: 1.2rem;
+      margin-bottom: 0.7em;
+      text-shadow: 1px 1px 0 #fffbe7;
+    }
+    .blog-back-btn {
+      display: inline-block;
+      margin-bottom: 1em;
+      background: #ede5d8;
+      color: var(--retro-link);
+      border: 1px solid var(--retro-border);
+      border-radius: 4px;
+      padding: 0.3em 1em;
+      font-family: var(--font-title);
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 1px 1px 0 #b7a99a;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .blog-back-btn:hover {
+      background: #fffbe7;
+      color: var(--retro-title);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .contact-icons-section {
+      background: #e0d6c3;
+      border: 4px solid var(--retro-border-accent);
+      border-radius: 0;
+      box-shadow: none;
+      padding: 1.1rem 1.1rem 1.1rem 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+    .exp-dropdown-title {
+      cursor: pointer;
+      user-select: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .exp-caret {
+      font-size: 1.1em;
+      color: var(--retro-link);
+      margin-right: 0.2em;
+    }
+    .exp-dropdown-content {
+      font-weight: normal;
+      color: var(--retro-accent);
+      background: none;
+      border-left: 2px solid var(--retro-link);
+      padding-left: 1em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated ASCII Wave Background (no shields) -->
+  <canvas id="ascii-bg-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0.45;"></canvas>
+  <script>
+    // ASCII Wave Animation (no shields)
+    const canvas = document.getElementById('ascii-bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    function resizeCanvas() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // ASCII wave
+    const asciiChars = ['~', '-', '_', '=', '^', '`', '.', ' '];
+    const waveColor = '#33ffcc';
+    const charW = 14, charH = 22;
+
+    function drawWave(t) {
+      ctx.font = '18px Roboto Mono, Courier, monospace';
+      ctx.textBaseline = 'top';
+      const rows = Math.floor(height / charH);
+      const cols = Math.floor(width / charW);
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          // Wave formula
+          const phase = t/700 + x/3;
+          const wave = Math.sin(phase + y/2);
+          const charIdx = Math.floor((wave + 1) / 2 * (asciiChars.length-1));
+          ctx.fillStyle = waveColor;
+          ctx.fillText(asciiChars[charIdx], x*charW, y*charH);
+        }
+      }
+    }
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      drawWave(performance.now());
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+  <header>
+    <div class="retro-title">Yash Dangi</div>
+    <div class="subtitle">Bachelor of Technology, NIT Bhopal</div>
+  </header>
+  <main class="main-grid">
+    <!-- Left Column -->
+    <div class="column">
+      <section class="contact-icons-section" style="margin-bottom:1.2rem;">
+        <div style="display:flex;justify-content:center;align-items:center;gap:1.5em;">
+          <a href="mailto:yashdangipcmjee@gmail.com" target="_blank" style="color:var(--retro-link);font-family:var(--font-main);font-size:1.08em;text-decoration:none;font-weight:bold;">Email</a>
+          <a href="https://github.com/dangiyash" target="_blank" style="color:var(--retro-link);font-family:var(--font-main);font-size:1.08em;text-decoration:none;font-weight:bold;">GitHub</a>
+          <a href="https://www.linkedin.com/in/yash-dangi-769b7428b/" target="_blank" style="color:var(--retro-link);font-family:var(--font-main);font-size:1.08em;text-decoration:none;font-weight:bold;">LinkedIn</a>
+        </div>
+      </section>
+      <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-list">
+          <span>C/C++</span><span>Python</span><span>JavaScript</span><span>ReactJs</span><span>NodeJs</span><span>HTML+CSS</span><span>Git</span><span>MongoDB</span>
+        </div>
+      </section>
+      <section class="contact-form-section">
+        <h2>Contact Me</h2>
+        <form class="contact-form" id="contactForm" autocomplete="off">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+          <button type="submit">Send</button>
+          <div id="form-status" style="margin-top:0.7em; font-size:0.95em; color:var(--retro-link);"></div>
+        </form>
+        <!-- TODO: Insert Google Sheets script integration here -->
+      </section>
+      <section>
+        <h2>Other Contacts</h2>
+        <div style="font-size:1.08em;line-height:1.7;">
+          <div>
+            <strong>Phone:</strong>
+            <a href="tel:+917974610853" style="color:var(--retro-link);text-decoration:none;">+91 79746 10853</a>
+          </div>
+          <div>
+            <strong>WhatsApp:</strong>
+            <a href="https://wa.me/916265483558" target="_blank" style="color:var(--retro-link);text-decoration:none;">+91 62654 83558</a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Right (Wide) Column -->
+    <div class="column" id="main-content-column">
+      <section>
+        <h2>About Me</h2>
+        <div style="font-size:1.04em;line-height:1.6;">
+          Versatile problem-solver with a technical foundation and experience in communication, development, and analytical execution, focused on building meaningful, real-world solutions.
+        </div>
+      </section>
+      <section>
+        <h2>Projects</h2>
+        <ul class="project-list">
+          <li class="project-item">
+            <a class="project-title" href="https://github.com/dangiyash/roadmap-master" target="_blank">Roadmap Master</a>
+            <div class="project-desc">A comprehensive roadmap and resource guide for mastering programming and development skills. Built Under BOLT Hackathon</div>
+          </li>
+          <li class="project-item">
+            <a class="project-title" href="https://github.com/dangiyash/padhAI-v1" target="_blank">Padh AI</a>
+            <div class="project-desc">Personalised Aptitude Development Helper AI with dynamic, AI-generated assessments and curated resources. Built under Hackhazards-25</div>
+          </li>
+          <li class="project-item">
+            <a class="project-title" href="https://github.com/dangiyash/hack-the-future-2025-iit" target="_blank">Legacy PDF table extraction</a>
+            <div class="project-desc">A tool to extract tables from PDFs/images, store them in JSON, and enable LLM-powered RAG for querying. Finalist, Ministry of Statistics and Programme Implementation.</div>
+          </li>
+          <li class="project-item">
+            <a class="project-title" href="https://github.com/dangiyash/ERP-APIs" target="_blank">Personal ERP Client</a>
+            <div class="project-desc">A client and API suite for college student info portal.</div>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Blogs</h2>
+        <ul class="blog-list">
+          <li class="blog-item">
+            <a class="blog-title" href="https://dangiyash.hashnode.dev/genai-and-future" target="_blank">GenAI - Present & Ahead.</a>
+          </li>
+          <li class="blog-item">
+            <a class="blog-title" href="https://dangiyash.hashnode.dev/the-right-ui" target="_blank">The Right UI? </a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Recent Events</h2>
+        <ul class="achievements">
+          <li>Hack The Future, IIT Gandhinagar <b>Finalist</b> (Top 20 of 1000+ teams).</li>
+          <li>Goldman Sachs India Hackathon <b>All India Rank 237</b>.</li>
+          <li>Namespace Hackhazards <b>Built PadhAI</b> under Top 100 projects.</li>
+          <li>SuRaksha Cyber Hackathon <b>Shortlisted Top 100</b> of 6000+ teams.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item exp-dropdown">
+            <div class="exp-dropdown-title" onclick="toggleExpDropdown(this)">
+              <span class="exp-caret">&#9654;</span>
+              <span class="exp-role">Sponsorship Executive</span> <span class="exp-org">Tooryanaad MANIT</span> <span style="float:right; color:var(--retro-link);">Apr 2023 - Sep 2024</span>
+            </div>
+            <div class="exp-dropdown-content" style="display:none; margin-top:0.5em;">
+              Directly connected with various stakeholders to bring sponsorships for central India's largest Hindi Fest. Worked with the team to manage various processes, contacting and connecting with company leads and explaining the idea.
+            </div>
+          </div>
+          <div class="timeline-item exp-dropdown">
+            <div class="exp-dropdown-title" onclick="toggleExpDropdown(this)">
+              <span class="exp-caret">&#9654;</span>
+              <span class="exp-role">Web Developer</span> <span class="exp-org">Compass Interactives</span> <span style="float:right; color:var(--retro-link);">Jan 2025 - Current</span>
+            </div>
+            <div class="exp-dropdown-content" style="display:none; margin-top:0.5em;">
+              Building tailored web solutions for clients and internal projects. Contributing to tech blogs, exploring emerging technologies and sharing development insights.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer style="text-align:center; color:var(--retro-muted); font-size:0.95em; margin-bottom:1.5em; margin-top:2em; opacity:0.9; font-family: var(--font-main); position:relative;z-index:1;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:0.5em;font-size:1.2rem;line-height:1.2;white-space:nowrap;overflow-x:auto;">
+      <span style="flex:1;border-bottom:1.5px solid #b7a99a;height:0.7em;min-width:30px;"></span>
+      <span style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" style="vertical-align:middle;">
+          <circle cx="16" cy="16" r="14" stroke="#b7a99a" stroke-width="2" fill="#fffbe7"/>
+          <circle cx="16" cy="16" r="9" stroke="#d32f2f" stroke-width="2" fill="#fff"/>
+          <circle cx="16" cy="16" r="5" fill="#ffe082" stroke="#d32f2f" stroke-width="1.5"/>
+          <g stroke="#d32f2f" stroke-width="1.2">
+            <line x1="16" y1="2" x2="16" y2="7"/>
+            <line x1="16" y1="25" x2="16" y2="30"/>
+            <line x1="2" y1="16" x2="7" y2="16"/>
+            <line x1="25" y1="16" x2="30" y2="16"/>
+            <line x1="7.5" y1="7.5" x2="11" y2="11"/>
+            <line x1="24.5" y1="7.5" x2="21" y2="11"/>
+            <line x1="7.5" y1="24.5" x2="11" y2="21"/>
+            <line x1="24.5" y1="24.5" x2="21" y2="21"/>
+          </g>
+        </svg>
+      </span>
+      <span style="flex:1;border-bottom:1.5px solid #b7a99a;height:0.7em;min-width:30px;"></span>
+    </div>
+    <div style="margin:0.7em 0 0.2em 0;font-size:0.98em;color:#a08c7a;">
+      "Sometimes you gotta run before you can walk."<br>
+      <span style="font-size:0.93em;">— Iron Man (Tony Stark)</span>
+    </div>
+    <div style="margin-top:0.7em;">
+      &copy; 2025 Yash Dangi | <span style="color:var(--retro-link);">dangiyash.tech</span>
+    </div>
+  </footer>
+  <script>
+    // Placeholder for Google Sheets script integration
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('form-status').textContent = 'Submitting...';
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const status = document.getElementById('form-status');
+  status.textContent = 'Submitting...';
+
+  // Gather form data
+  const formData = {
+    name: form.name.value,
+    email: form.email.value,
+    message: form.message.value
+  };
+
+  // Send POST request to Google Apps Script
+  fetch('https://script.google.com/macros/s/AKfycbzq4OsZNWRm6tEdOYkFdwX0UFs0G2g2GADcVFygEQPr8Bw4M-H78p8JuR4ELpMhqVYhKQ/exec', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => {
+    if (response.ok) {
+      status.textContent = 'Thank you for reaching out!';
+      form.reset();
+    } else {
+      status.textContent = 'There was an error. Please try again later.';
+    }
+  })
+  .catch(() => {
+    status.textContent = 'There was an error. Please try again later.';
+  });
+});
+      setTimeout(function() {
+        document.getElementById('form-status').textContent = 'Thank you for reaching out!';
+        document.getElementById('contactForm').reset();
+      }, 1200);
+    });
+
+    // Blog open/close logic
+    const blogPosts = {
+      blog1: {
+        title: 'How I Built PADH AI: From Idea to Launch',
+        content: `<button class="blog-back-btn" onclick="showMainContent()">&larr; Back</button>
+          <h2>How I Built PADH AI: From Idea to Launch</h2>
+          <p><b>Date:</b> May 2024</p>
+          <p>This post details the journey of building PADH AI, a personalized AI-powered learning assistant. From ideation, tech stack selection (Next.js, Gemini API, MongoDB), to deployment and user feedback, I share the challenges, solutions, and lessons learned. <br><br>Key highlights include dynamic assessment generation, integrating trusted resources, and ensuring scalability for real-world use.</p>
+          <p><i>Stay tuned for code snippets and more technical deep-dives!</i></p>`
+      },
+      blog2: {
+        title: 'Extracting Tables from PDFs with Python',
+        content: `<button class="blog-back-btn" onclick="showMainContent()">&larr; Back</button>
+          <h2>Extracting Tables from PDFs with Python</h2>
+          <p><b>Date:</b> April 2024</p>
+          <p>Learn how to automate table extraction from complex PDFs using Python libraries like PyTesseract, PIL, and FastAPI. This post covers OCR, image preprocessing, and storing results in JSON for further analysis or LLM-powered querying.</p>
+          <ul><li>OCR with PyTesseract</li><li>Image handling with PIL</li><li>API design for automation</li></ul>
+          <p>Includes code samples and performance tips for large-scale document processing.</p>`
+      }
+    };
+    function showBlog(blogKey) {
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('blog-content').style.display = 'block';
+      document.getElementById('blog-content').innerHTML = blogPosts[blogKey].content;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function showMainContent() {
+      document.getElementById('blog-content').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.querySelectorAll('.blog-title[data-blog]').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        showBlog(el.getAttribute('data-blog'));
+      });
+    });
+
+    function toggleExpDropdown(el) {
+      var content = el.nextElementSibling;
+      var caret = el.querySelector('.exp-caret');
+      if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        caret.innerHTML = '&#9660;';
+      } else {
+        content.style.display = 'none';
+        caret.innerHTML = '&#9654;';
+      }
+    }
+  </script>
+</body>
+</html> 
