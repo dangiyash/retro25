@@ -354,6 +354,59 @@
       border-left: 2px solid var(--retro-link);
       padding-left: 1em;
     }
+    
+    /* Events Scrolling Animation */
+    .events-scroll-container {
+      height: 120px;
+      overflow: hidden;
+      position: relative;
+      background: #e0d6c3;
+      border: 2px solid var(--retro-border);
+      border-radius: 0;
+      box-shadow: none;
+      padding: 0.5rem;
+    }
+    
+    .events-scroll-content {
+      animation: scrollEvents 20s linear infinite;
+      position: relative;
+    }
+    
+    .event-item {
+      padding: 0.8rem 0.5rem;
+      margin: 0.3rem 0;
+      background: #ede5d8;
+      border: 1px solid var(--retro-border);
+      border-radius: 0;
+      font-family: var(--font-main);
+      color: var(--retro-accent);
+      font-size: 0.95rem;
+      line-height: 1.4;
+      box-shadow: 1px 1px 0 #b7a99a;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .event-item b {
+      color: var(--retro-link);
+      font-weight: bold;
+    }
+    
+    @keyframes scrollEvents {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-50%);
+      }
+    }
+    
+    /* Pause animation on hover */
+    .events-scroll-container:hover .events-scroll-content {
+      animation-play-state: paused;
+    }
   </style>
 </head>
 <body>
@@ -492,12 +545,19 @@
       </section>
       <section>
         <h2>Recent Events</h2>
-        <ul class="achievements">
-          <li>Hack The Future, IIT Gandhinagar <b>Finalist</b> (Top 20 of 1000+ teams).</li>
-          <li>Goldman Sachs India Hackathon <b>All India Rank 237</b>.</li>
-          <li>Namespace Hackhazards <b>Built PadhAI</b> under Top 100 projects.</li>
-          <li>SuRaksha Cyber Hackathon <b>Shortlisted Top 100</b> of 6000+ teams.</li>
-        </ul>
+        <div class="events-scroll-container">
+          <div class="events-scroll-content">
+            <div class="event-item">Hack The Future, IIT Gandhinagar <b>Finalist</b> (Top 20 of 1000+ teams)</div>
+            <div class="event-item">Goldman Sachs India Hackathon <b>All India Rank 237</b></div>
+            <div class="event-item">Namespace Hackhazards <b>Built PadhAI</b> under Top 100 projects</div>
+            <div class="event-item">SuRaksha Cyber Hackathon <b>Shortlisted Top 100</b> of 6000+ teams</div>
+            <!-- Duplicate items for seamless loop -->
+            <div class="event-item">Hack The Future, IIT Gandhinagar <b>Finalist</b> (Top 20 of 1000+ teams)</div>
+            <div class="event-item">Goldman Sachs India Hackathon <b>All India Rank 237</b></div>
+            <div class="event-item">Namespace Hackhazards <b>Built PadhAI</b> under Top 100 projects</div>
+            <div class="event-item">SuRaksha Cyber Hackathon <b>Shortlisted Top 100</b> of 6000+ teams</div>
+          </div>
+        </div>
       </section>
       <section>
         <h2>Experience</h2>
