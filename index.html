@@ -82,14 +82,17 @@
       width: 100%;
     }
     section {
-      background: #e0d6c3;
-      border: 4px solid var(--retro-border-accent);
+      background: transparent;
+      border: none;
       border-radius: 0;
       box-shadow: none;
       padding: 1.1rem 1.1rem 1.1rem 1.1rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.2rem;
+      font-family: var(--font-main);
+      color: var(--retro-accent);
       position: relative;
-      overflow: hidden;
+      z-index: 1;
+      image-rendering: pixelated;
     }
     h2 {
       font-family: var(--font-title);
@@ -218,12 +221,13 @@
     }
     /* Contact Form Styles */
     .contact-form-section {
-      background: #e0d6c3;
-      border: 4px solid var(--retro-border-accent);
+      background: transparent;
+      border: none;
       border-radius: 0;
       box-shadow: none;
       padding: 1.1rem 1.1rem 1.1rem 1.1rem;
       margin-bottom: 1.2rem;
+      image-rendering: pixelated;
     }
     .contact-form-section h2 {
       margin-bottom: 1em;
@@ -327,12 +331,13 @@
       to { opacity: 1; }
     }
     .contact-icons-section {
-      background: #e0d6c3;
-      border: 4px solid var(--retro-border-accent);
+      background: transparent;
+      border: none;
       border-radius: 0;
       box-shadow: none;
       padding: 1.1rem 1.1rem 1.1rem 1.1rem;
       margin-bottom: 1.2rem;
+      image-rendering: pixelated;
     }
     .exp-dropdown-title {
       cursor: pointer;
@@ -360,11 +365,12 @@
       height: 120px;
       overflow: hidden;
       position: relative;
-      background: #e0d6c3;
-      border: 2px solid var(--retro-border);
+      background: transparent;
+      border: none;
       border-radius: 0;
       box-shadow: none;
       padding: 0.5rem;
+      image-rendering: pixelated;
     }
     
     .events-scroll-content {
@@ -375,18 +381,19 @@
     .event-item {
       padding: 0.8rem 0.5rem;
       margin: 0.3rem 0;
-      background: #ede5d8;
-      border: 1px solid var(--retro-border);
+      background: transparent;
+      border: none;
       border-radius: 0;
       font-family: var(--font-main);
       color: var(--retro-accent);
       font-size: 0.95rem;
       line-height: 1.4;
-      box-shadow: 1px 1px 0 #b7a99a;
+      box-shadow: none;
       text-align: center;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      image-rendering: pixelated;
     }
     
     .event-item b {
@@ -406,6 +413,93 @@
     /* Pause animation on hover */
     .events-scroll-container:hover .events-scroll-content {
       animation-play-state: paused;
+    }
+    
+    /* Dynamic Text Animation */
+    .dynamic-text {
+      position: relative;
+      color: var(--retro-accent);
+      min-height: 4.8em;
+    }
+    
+    .text-line {
+      display: inline-block;
+      position: relative;
+      transition: all 0.5s ease;
+    }
+    
+    .text-line.fade-out {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    
+    .text-line.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .text-line.typing {
+      border-right: 2px solid var(--retro-link);
+      animation: blink 1s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 50% { border-color: var(--retro-link); }
+      51%, 100% { border-color: transparent; }
+    }
+    
+    /* Matrix Glitch Effect */
+    .matrix-glitch {
+      position: relative;
+      color: var(--retro-link);
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .matrix-glitch.glitching {
+      color: #00ff00;
+      text-shadow: 
+        0 0 5px #00ff00,
+        0 0 10px #00ff00,
+        0 0 15px #00ff00;
+      animation: matrixFlicker 0.1s infinite;
+    }
+    
+    @keyframes matrixFlicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    
+    .matrix-glitch::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #ff0000;
+      z-index: -1;
+      animation: matrixShift 0.1s infinite;
+    }
+    
+    .matrix-glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #0000ff;
+      z-index: -2;
+      animation: matrixShift 0.1s infinite reverse;
+    }
+    
+    @keyframes matrixShift {
+      0% { transform: translate(0); }
+      25% { transform: translate(-1px, 1px); }
+      50% { transform: translate(1px, -1px); }
+      75% { transform: translate(-1px, -1px); }
+      100% { transform: translate(1px, 1px); }
     }
   </style>
 </head>
@@ -507,9 +601,20 @@
     <div class="column" id="main-content-column">
       <section>
         <h2>About Me</h2>
-        <div style="font-size:1.04em;line-height:1.6;">
-          Versatile problem-solver with a technical foundation and experience in communication, development, and analytical execution, focused on building meaningful, real-world solutions.
+        <div class="dynamic-text" style="font-size:1.04em;line-height:1.6;">
+          I am a <span class="matrix-glitch" id="dynamic-adjective" style="font-size:4em;">problem solver</span>
         </div>
+      </section>
+      <section>
+        <h2>Blogs</h2>
+        <ul class="blog-list">
+          <li class="blog-item">
+            <a class="blog-title" href="https://dangiyash.hashnode.dev/genai-and-future" target="_blank">GenAI - Present & Ahead.</a>
+          </li>
+          <li class="blog-item">
+            <a class="blog-title" href="https://dangiyash.hashnode.dev/the-right-ui" target="_blank">The Right UI? </a>
+          </li>
+        </ul>
       </section>
       <section>
         <h2>Projects</h2>
@@ -529,17 +634,6 @@
           <li class="project-item">
             <a class="project-title" href="https://github.com/dangiyash/ERP-APIs" target="_blank">Personal ERP Client</a>
             <div class="project-desc">A client and API suite for college student info portal.</div>
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h2>Blogs</h2>
-        <ul class="blog-list">
-          <li class="blog-item">
-            <a class="blog-title" href="https://dangiyash.hashnode.dev/genai-and-future" target="_blank">GenAI - Present & Ahead.</a>
-          </li>
-          <li class="blog-item">
-            <a class="blog-title" href="https://dangiyash.hashnode.dev/the-right-ui" target="_blank">The Right UI? </a>
           </li>
         </ul>
       </section>
@@ -580,6 +674,15 @@
               Building tailored web solutions for clients and internal projects. Contributing to tech blogs, exploring emerging technologies and sharing development insights.
             </div>
           </div>
+          <div class="timeline-item exp-dropdown">
+            <div class="exp-dropdown-title" onclick="toggleExpDropdown(this)">
+              <span class="exp-caret">&#9654;</span>
+              <span class="exp-role">Debator</span> <span class="exp-org">DebSoc MANIT</span> <span style="float:right; color:var(--retro-link);">2025 - Present</span>
+            </div>
+            <div class="exp-dropdown-content" style="display:none; margin-top:0.5em;">
+              Showcasing communication skills through active participation in debates and discussions. Engaging in intellectual discourse and developing persuasive argumentation abilities.
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -615,47 +718,39 @@
     </div>
   </footer>
   <script>
-    // Placeholder for Google Sheets script integration
+    // Contact form submission
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      document.getElementById('form-status').textContent = 'Submitting...';
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const status = document.getElementById('form-status');
-  status.textContent = 'Submitting...';
+      const form = e.target;
+      const status = document.getElementById('form-status');
+      status.textContent = 'Submitting...';
 
-  // Gather form data
-  const formData = {
-    name: form.name.value,
-    email: form.email.value,
-    message: form.message.value
-  };
+      // Gather form data
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value
+      };
 
-  // Send POST request to Google Apps Script
-  fetch('https://script.google.com/macros/s/AKfycbzq4OsZNWRm6tEdOYkFdwX0UFs0G2g2GADcVFygEQPr8Bw4M-H78p8JuR4ELpMhqVYhKQ/exec', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
-  })
-  .then(response => {
-    if (response.ok) {
-      status.textContent = 'Thank you for reaching out!';
-      form.reset();
-    } else {
-      status.textContent = 'There was an error. Please try again later.';
-    }
-  })
-  .catch(() => {
-    status.textContent = 'There was an error. Please try again later.';
-  });
-});
-      setTimeout(function() {
-        document.getElementById('form-status').textContent = 'Thank you for reaching out!';
-        document.getElementById('contactForm').reset();
-      }, 1200);
+      // Send POST request to Google Apps Script
+      fetch('https://script.google.com/macros/s/AKfycbzq4OsZNWRm6tEdOYkFdwX0UFs0G2g2GADcVFygEQPr8Bw4M-H78p8JuR4ELpMhqVYhKQ/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => {
+        if (response.ok) {
+          status.textContent = 'Thank you for reaching out!';
+          form.reset();
+        } else {
+          status.textContent = 'There was an error. Please try again later.';
+        }
+      })
+      .catch(() => {
+        status.textContent = 'There was an error. Please try again later.';
+      });
     });
 
     // Blog open/close logic
@@ -699,6 +794,7 @@
     function toggleExpDropdown(el) {
       var content = el.nextElementSibling;
       var caret = el.querySelector('.exp-caret');
+      
       if (content.style.display === 'none' || content.style.display === '') {
         content.style.display = 'block';
         caret.innerHTML = '&#9660;';
@@ -707,6 +803,91 @@
         caret.innerHTML = '&#9654;';
       }
     }
+    
+    // Initialize dropdown functionality when page loads
+    window.addEventListener('load', function() {
+      var dropdownTitles = document.querySelectorAll('.exp-dropdown-title');
+      dropdownTitles.forEach(function(title) {
+        title.addEventListener('click', function(e) {
+          e.preventDefault();
+          toggleExpDropdown(this);
+        });
+      });
+    });
+    
+    // Matrix Glitch Adjective Animation
+    const adjectives = [
+      "problem solver",
+      "developer", 
+      "student",
+      "innovator",
+      "creator",
+      "thinker",
+      "builder",
+      "learner"
+    ];
+    
+    const matrixAsciiChars = ['@', '#', '$', '%', '&', '*', '!', '?', '~', '^', '`', '|', '/', '\\', '+', '=', '<', '>', '[', ']', '{', '}', ';', ':', '"', "'", ',', '.', '-', '_'];
+    
+    let currentAdjIndex = 0;
+    const adjElement = document.getElementById('dynamic-adjective');
+    
+    function generateRandomASCII(length) {
+      let result = '';
+      for (let i = 0; i < length; i++) {
+        result += matrixAsciiChars[Math.floor(Math.random() * matrixAsciiChars.length)];
+      }
+      return result;
+    }
+    
+    function matrixGlitchEffect() {
+      const currentText = adjElement.textContent;
+      const textLength = currentText.length;
+      
+      // Start glitch effect
+      adjElement.classList.add('glitching');
+      adjElement.setAttribute('data-text', currentText);
+      
+      // Corrupt to ASCII
+      let corruptionSteps = 0;
+      const maxCorruptionSteps = 8;
+      
+      const corruptionInterval = setInterval(() => {
+        if (corruptionSteps >= maxCorruptionSteps) {
+          clearInterval(corruptionInterval);
+          
+          // Change to next adjective
+          currentAdjIndex = (currentAdjIndex + 1) % adjectives.length;
+          adjElement.textContent = adjectives[currentAdjIndex];
+          adjElement.setAttribute('data-text', adjectives[currentAdjIndex]);
+          
+          // Stop glitching
+          setTimeout(() => {
+            adjElement.classList.remove('glitching');
+          }, 500);
+          
+          return;
+        }
+        
+        // Generate random ASCII corruption
+        adjElement.textContent = generateRandomASCII(textLength);
+        corruptionSteps++;
+      }, 100);
+    }
+    
+    // Start the matrix glitch effect immediately
+    matrixGlitchEffect(); // Trigger first effect immediately
+    setInterval(matrixGlitchEffect, 3000); // Change adjective every 3 seconds
+    
+    // Add event listeners for experience dropdowns as backup
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropdownTitles = document.querySelectorAll('.exp-dropdown-title');
+      dropdownTitles.forEach(function(title) {
+        title.addEventListener('click', function() {
+          toggleExpDropdown(this);
+        });
+      });
+    });
   </script>
 </body>
 </html> 
