@@ -4,6 +4,11 @@
       "source": "/resume",
       "destination": "https://drive.google.com/file/d/1Agnt-XZJwzyZQMje1i2O3ax4M6FLJ327/view?usp=drive_link",
       "permanent": true
+    },
+     {
+      "source": "/archive-iith",
+      "destination": "https://docs.google.com/document/d/1HZ_TIn86i1RmdkrVp7aMGAce3K8wTmQOBsHASSiqMbI/edit?usp=sharing",
+      "permanent": true
     }
   ]
 }
