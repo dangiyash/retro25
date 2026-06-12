@@ -7,887 +7,250 @@
   <meta name="description" content="Portfolio of Yash Dangi - B.Tech, NIT Bhopal. Projects, achievements, and experience in tech, web, and AI.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='transparent'/%3E%3Crect x='3' y='2' width='2' height='2' fill='%232d5c88'/%3E%3Crect x='11' y='2' width='2' height='2' fill='%232d5c88'/%3E%3Crect x='5' y='4' width='2' height='2' fill='%232d5c88'/%3E%3Crect x='9' y='4' width='2' height='2' fill='%232d5c88'/%3E%3Crect x='7' y='6' width='2' height='6' fill='%232d5c88'/%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/dangiyash/retro25/refs/heads/main/logo.png">
   <style>
     :root {
-      --retro-bg: #f4f1ee;
-      --retro-card: #e0d6c3;
-      --retro-border: #7a5c3a;
-      --retro-border-accent: #b7a99a;
-      --retro-accent: #3a2e25;
-      --retro-title: #2d1e12;
-      --retro-muted: #6d5c4d;
-      --retro-link: #2d5c88;
-      --font-main: 'Roboto Mono', 'Courier New', Courier, monospace;
-      --font-title: 'Press Start 2P', 'Courier New', Courier, monospace;
+      --bg: #050505;
+      --text: #f5f5f5;
+      --body: #e5e5e5;
+      --muted: #8a8a8a;
+      --accent: #8f9eff;
     }
-    html, body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background: transparent !important;
-      color: var(--retro-accent);
-      font-family: var(--font-main);
-      letter-spacing: 0.01em;
-      scroll-behavior: smooth;
-    }
+    ::selection { background: var(--accent); color: #050505; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .layout {
+      max-width: 850px;
+      margin-left: 25%;
+      padding: 0 24px;
+    }
+    header.layout {
+      padding-top: 40px;
+      padding-bottom: 32px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-    }
-    header {
-      width: 100%;
-      padding: 2rem 0 1rem 0;
-      text-align: center;
-      background: transparent;
-    }
-    .retro-title {
-      font-family: var(--font-title);
-      font-size: 2.2rem;
-      color: var(--retro-title);
-      letter-spacing: 0.08em;
-      margin-bottom: 0.2em;
-      text-shadow: 1px 1px 0 #fffbe7, 2px 2px 0 #b7a99a;
-    }
-    .subtitle {
-      font-size: 1.1rem;
-      color: var(--retro-muted);
-      margin-bottom: 0.5em;
-      font-family: var(--font-main);
-    }
-    .main-grid {
-      display: grid;
-      grid-template-columns: 0.6fr 2.4fr;
-      gap: 2rem;
-      grid-gap: 2rem;
-      width: 95%;
-      max-width: 1100px;
-      margin: 0 auto 2rem auto;
-      min-height: 60vh;
-    }
-    .column {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      overflow-wrap: break-word;
-    }
-    .column:first-child > section {
-      max-width: 100%;
-    }
-    .column:last-child > section {
-      width: 100%;
-    }
-    section {
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      padding: 1.1rem 1.1rem 1.1rem 1.1rem;
-      margin-bottom: 1.2rem;
-      font-family: var(--font-main);
-      color: var(--retro-accent);
+      align-items: flex-start;
+      gap: 20px;
       position: relative;
-      z-index: 1;
-      image-rendering: pixelated;
     }
-    h2 {
-      font-family: var(--font-title);
-      color: var(--retro-title);
-      font-size: 1.1rem;
-      margin-bottom: 0.7em;
-      text-shadow: 1px 1px 0 #fffbe7;
-      letter-spacing: 0.05em;
+    .header-logo {
+      position: absolute;
+      left: -250px;
+      top: 15px;
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
     }
-    .project-list, .blog-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    header .name-wrap {
+      margin-right: auto;
+      margin-left: -18px;
+      margin-top: -11px;
     }
-    .project-item, .blog-item {
-      margin-bottom: 1.1em;
-      padding-bottom: 0.7em;
-      border-bottom: 1px dashed var(--retro-border);
+    header h1 {
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--text);
     }
-    .project-item:last-child, .blog-item:last-child {
-      border-bottom: none;
+    header .subtitle {
+      color: var(--muted);
     }
-    .project-title, .blog-title {
-      font-weight: bold;
-      font-family: var(--font-title);
-      font-size: 1em;
-      color: var(--retro-link);
-      text-decoration: none;
-      display: inline-block;
-      margin-bottom: 0.2em;
-      transition: color 0.2s;
+    .social {
+      display: flex;
+      gap: 16px;
+      align-items: center;
     }
-    .project-title:hover, .blog-title:hover {
-      color: var(--retro-title);
-      text-decoration: underline;
+    .social a {
+      color: var(--text);
+      transition: color 0.2s, background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--muted);
     }
-    .project-desc, .blog-desc {
-      font-size: 0.97em;
-      color: var(--retro-accent);
-      margin-left: 0.2em;
-      margin-bottom: 0.2em;
-      font-family: var(--font-main);
+    .social a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
     }
-    ul, ol {
-      padding-left: 1.2em;
-      margin: 0.2em 0 0.7em 0;
+    .social svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
     }
-    li {
-      margin-bottom: 0.4em;
-      line-height: 1.5;
+    main { padding-bottom: 40px; }
+    .intro {
+      font-size: 20px;
+      color: var(--body);
+      margin-bottom: 24px;
+      line-height: 1.9;
     }
-    .achievements li::before {
-      content: '• ';
-      color: var(--retro-muted);
+    .section { margin-top: 120px; }
+    .section-title {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: 8px;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .project-item {
+      margin-bottom: 24px;
+    }
+    .project-item h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .project-item h3 a {
+      color: var(--accent);
+    }
+    .project-item p {
+      font-size: 18px;
+      color: var(--body);
+      line-height: 1.8;
+    }
+    .blog-item {
+      margin-bottom: 16px;
+    }
+    .blog-item a {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
     }
     .skills-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7em;
-      margin-bottom: 0.5em;
+      gap: 4px 8px;
     }
     .skills-list span {
-      background: #ede5d8;
-      color: var(--retro-accent);
-      border: 1px solid var(--retro-border);
-      border-radius: 4px;
-      padding: 0.2em 0.7em;
-      font-size: 0.95em;
-      margin-bottom: 0.2em;
-      font-family: var(--font-main);
+      font-size: 18px;
+      color: var(--body);
     }
-    .timeline {
+    .events-list {
       display: flex;
       flex-direction: column;
-      gap: 0.7em;
-      margin-bottom: 0.5em;
+      gap: 4px;
     }
-    .timeline-item {
-      position: relative;
-      padding-left: 1.2em;
-      color: var(--retro-accent);
+    .events-list .event {
+      font-size: 18px;
+      color: var(--body);
+      line-height: 1.8;
     }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: 0.1em;
-      top: 0.7em;
-      width: 0.6em;
-      height: 0.6em;
-      background: var(--retro-border);
-      border-radius: 50%;
-      box-shadow: 1px 1px 0 #fffbe7;
+    .events-list .event b {
+      font-weight: 700;
+      color: var(--text);
     }
-    .exp-role {
-      color: var(--retro-link);
-      font-weight: bold;
-    }
-    .exp-org {
-      color: var(--retro-muted);
-      font-style: italic;
-    }
-    .contact {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2em;
-      margin-bottom: 1.2em;
-    }
-    .contact a, .contact span {
-      color: var(--retro-link);
-      text-decoration: none;
-      font-size: 1rem;
-      background: #ede5d8;
-      border: 1px solid var(--retro-border);
-      border-radius: 6px;
-      padding: 0.3em 0.9em;
-      margin: 0.2em;
-      font-family: var(--font-main);
-      box-shadow: 1px 1px 0 #b7a99a;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-    }
-    .contact a:hover {
-      color: var(--retro-title);
-      background: #fffbe7;
-      box-shadow: 2px 2px 0 #b7a99a;
-    }
-    /* Contact Form Styles */
-    .contact-form-section {
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      padding: 1.1rem 1.1rem 1.1rem 1.1rem;
-      margin-bottom: 1.2rem;
-      image-rendering: pixelated;
-    }
-    .contact-form-section h2 {
-      margin-bottom: 1em;
-    }
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-    }
-    .contact-form label {
-      font-family: var(--font-main);
-      font-size: 1em;
-      color: var(--retro-accent);
-      margin-bottom: 0.2em;
-    }
-    .contact-form input, .contact-form textarea {
-      font-family: var(--font-main);
-      font-size: 1em;
-      border: 1px solid var(--retro-border);
-      border-radius: 4px;
-      padding: 0.5em;
-      background: #f9f6f2;
-      color: var(--retro-accent);
-      resize: vertical;
-      box-shadow: 1px 1px 0 #b7a99a;
-    }
-    .contact-form textarea {
-      min-height: 80px;
-      max-height: 200px;
-    }
-    .contact-form button {
-      font-family: var(--font-title);
-      font-size: 1em;
-      background: var(--retro-link);
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      padding: 0.6em 1.2em;
-      cursor: pointer;
-      box-shadow: 1px 1px 0 #b7a99a;
-      transition: background 0.2s;
-    }
-    .contact-form button:hover {
-      background: var(--retro-title);
+    footer {
+      padding: 48px 0;
+      margin-top: 80px;
+      border-top: 1px solid #1a1a1a;
+      font-size: 16px;
+      color: var(--muted);
+      text-align: center;
     }
     @media (max-width: 1000px) {
-      .main-grid {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-      }
-      .column {
-        flex-direction: column;
-        gap: 1.2rem;
-      }
+      .layout { margin-left: 0; }
     }
     @media (max-width: 700px) {
-      .main-grid { width: 99%; }
-      section { padding: 1em 0.5em; }
-      .retro-title { font-size: 1.3rem; }
-    }
-    .blog-content {
-      background: var(--retro-card);
-      border: 2px solid var(--retro-border);
-      border-radius: 10px;
-      box-shadow: 2px 2px 0 #b7a99a;
-      padding: 1.5rem 1.2rem 1.2rem 1.2rem;
-      margin-bottom: 1.5rem;
-      font-family: var(--font-main);
-      color: var(--retro-accent);
-      max-width: 100%;
-      animation: fadeIn 0.3s;
-    }
-    .blog-content h2 {
-      font-family: var(--font-title);
-      color: var(--retro-title);
-      font-size: 1.2rem;
-      margin-bottom: 0.7em;
-      text-shadow: 1px 1px 0 #fffbe7;
-    }
-    .blog-back-btn {
-      display: inline-block;
-      margin-bottom: 1em;
-      background: #ede5d8;
-      color: var(--retro-link);
-      border: 1px solid var(--retro-border);
-      border-radius: 4px;
-      padding: 0.3em 1em;
-      font-family: var(--font-title);
-      font-size: 1em;
-      cursor: pointer;
-      box-shadow: 1px 1px 0 #b7a99a;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-    }
-    .blog-back-btn:hover {
-      background: #fffbe7;
-      color: var(--retro-title);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .contact-icons-section {
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      padding: 1.1rem 1.1rem 1.1rem 1.1rem;
-      margin-bottom: 1.2rem;
-      image-rendering: pixelated;
-    }
-    .exp-dropdown-title {
-      cursor: pointer;
-      user-select: none;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-    }
-    .exp-caret {
-      font-size: 1.1em;
-      color: var(--retro-link);
-      margin-right: 0.2em;
-    }
-    .exp-dropdown-content {
-      font-weight: normal;
-      color: var(--retro-accent);
-      background: none;
-      border-left: 2px solid var(--retro-link);
-      padding-left: 1em;
-    }
-    
-    /* Events Scrolling Animation */
-    .events-scroll-container {
-      height: 120px;
-      overflow: hidden;
-      position: relative;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      padding: 0.5rem;
-      image-rendering: pixelated;
-    }
-    
-    .events-scroll-content {
-      animation: scrollEvents 20s linear infinite;
-      position: relative;
-    }
-    
-    .event-item {
-      padding: 0.8rem 0.5rem;
-      margin: 0.3rem 0;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      font-family: var(--font-main);
-      color: var(--retro-accent);
-      font-size: 0.95rem;
-      line-height: 1.4;
-      box-shadow: none;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      image-rendering: pixelated;
-    }
-    
-    .event-item b {
-      color: var(--retro-link);
-      font-weight: bold;
-    }
-    
-    @keyframes scrollEvents {
-      0% {
-        transform: translateY(0);
-      }
-      100% {
-        transform: translateY(-50%);
-      }
-    }
-    
-    /* Pause animation on hover */
-    .events-scroll-container:hover .events-scroll-content {
-      animation-play-state: paused;
-    }
-    
-    /* Dynamic Text Animation */
-    .dynamic-text {
-      position: relative;
-      color: var(--retro-accent);
-      min-height: 4.8em;
-    }
-    
-    .text-line {
-      display: inline-block;
-      position: relative;
-      transition: all 0.5s ease;
-    }
-    
-    .text-line.fade-out {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    
-    .text-line.fade-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .text-line.typing {
-      border-right: 2px solid var(--retro-link);
-      animation: blink 1s infinite;
-    }
-    
-    @keyframes blink {
-      0%, 50% { border-color: var(--retro-link); }
-      51%, 100% { border-color: transparent; }
-    }
-    
-    /* Matrix Glitch Effect */
-    .matrix-glitch {
-      position: relative;
-      color: var(--retro-link);
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    
-    .matrix-glitch.glitching {
-      color: #00ff00;
-      text-shadow: 
-        0 0 5px #00ff00,
-        0 0 10px #00ff00,
-        0 0 15px #00ff00;
-      animation: matrixFlicker 0.1s infinite;
-    }
-    
-    @keyframes matrixFlicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.8; }
-    }
-    
-    .matrix-glitch::before {
-      content: attr(data-text);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      color: #ff0000;
-      z-index: -1;
-      animation: matrixShift 0.1s infinite;
-    }
-    
-    .matrix-glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      color: #0000ff;
-      z-index: -2;
-      animation: matrixShift 0.1s infinite reverse;
-    }
-    
-    @keyframes matrixShift {
-      0% { transform: translate(0); }
-      25% { transform: translate(-1px, 1px); }
-      50% { transform: translate(1px, -1px); }
-      75% { transform: translate(-1px, -1px); }
-      100% { transform: translate(1px, 1px); }
+      header h1 { font-size: 26px; }
+      .section-title { font-size: 20px; letter-spacing: 4px; }
+      .header-logo { display: none; }
     }
   </style>
 </head>
 <body>
-  <!-- Animated ASCII Wave Background (no shields) -->
-  <canvas id="ascii-bg-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0.45;"></canvas>
-  <script>
-    // ASCII Wave Animation (no shields)
-    const canvas = document.getElementById('ascii-bg-canvas');
-    const ctx = canvas.getContext('2d');
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    function resizeCanvas() {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // ASCII wave
-    const asciiChars = ['~', '-', '_', '=', '^', '`', '.', ' '];
-    const waveColor = '#33ffcc';
-    const charW = 14, charH = 22;
-
-    function drawWave(t) {
-      ctx.font = '18px Roboto Mono, Courier, monospace';
-      ctx.textBaseline = 'top';
-      const rows = Math.floor(height / charH);
-      const cols = Math.floor(width / charW);
-      for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < cols; x++) {
-          // Wave formula
-          const phase = t/700 + x/3;
-          const wave = Math.sin(phase + y/2);
-          const charIdx = Math.floor((wave + 1) / 2 * (asciiChars.length-1));
-          ctx.fillStyle = waveColor;
-          ctx.fillText(asciiChars[charIdx], x*charW, y*charH);
-        }
-      }
-    }
-    function animate() {
-      ctx.clearRect(0, 0, width, height);
-      drawWave(performance.now());
-      requestAnimationFrame(animate);
-    }
-    animate();
-  </script>
-  <header>
-    <div class="retro-title">Yash Dangi</div>
-    <div class="subtitle">Bachelor of Technology, NIT Bhopal</div>
-  </header>
-  <main class="main-grid">
-    <!-- Left Column -->
-    <div class="column">
-      <section class="contact-icons-section" style="margin-bottom:1.2rem;">
-        <div style="display:flex;justify-content:center;align-items:center;gap:1.5em;">
-          <a href="mailto:yashdangipcmjee@gmail.com" target="_blank" style="color:var(--retro-link);font-family:var(--font-main);font-size:1.08em;text-decoration:none;font-weight:bold;">Email</a>
-          <a href="https://github.com/dangiyash" target="_blank" style="color:var(--retro-link);font-family:var(--font-main);font-size:1.08em;text-decoration:none;font-weight:bold;">GitHub</a>
-          <a href="https://www.linkedin.com/in/yash-dangi-769b7428b/" target="_blank" style="color:var(--retro-link);font-family:var(--font-main);font-size:1.08em;text-decoration:none;font-weight:bold;">LinkedIn</a>
-        </div>
-      </section>
-      <section>
-        <h2>Technical Skills</h2>
-        <div class="skills-list">
-          <span>C/C++</span><span>Python</span><span>JavaScript</span><span>ReactJs</span><span>NodeJs</span><span>HTML+CSS</span><span>Git</span><span>MongoDB</span>
-        </div>
-      </section>
-      <section class="contact-form-section">
-        <h2>Contact Me</h2>
-        <form class="contact-form" id="contactForm" autocomplete="off">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-          <button type="submit">Send</button>
-          <div id="form-status" style="margin-top:0.7em; font-size:0.95em; color:var(--retro-link);"></div>
-        </form>
-        <!-- TODO: Insert Google Sheets script integration here -->
-      </section>
-      <section>
-        <h2>Other Contacts</h2>
-        <div style="font-size:1.08em;line-height:1.7;">
-          <div>
-            <strong>Phone:</strong>
-            <a href="tel:+917974610853" style="color:var(--retro-link);text-decoration:none;">+91 79746 10853</a>
-          </div>
-          <div>
-            <strong>WhatsApp:</strong>
-            <a href="https://wa.me/916265483558" target="_blank" style="color:var(--retro-link);text-decoration:none;">+91 62654 83558</a>
-          </div>
-        </div>
-      </section>
+  <header class="layout">
+    <a href="/"><img class="header-logo" src="https://raw.githubusercontent.com/dangiyash/retro25/refs/heads/main/logo.png" alt="logo"></a>
+    <div class="name-wrap">
+      <a href="/"><h1>Yash Dangi</h1></a>
+      <div class="subtitle">B.Tech, NIT Bhopal</div>
     </div>
-    <!-- Right (Wide) Column -->
-    <div class="column" id="main-content-column">
-      <section>
-        <h2>About Me</h2>
-        <div class="dynamic-text" style="font-size:1.04em;line-height:1.6;">
-          I am a <span class="matrix-glitch" id="dynamic-adjective" style="font-size:4em;">problem solver</span>
-        </div>
-      </section>
-      <section>
-        <h2>Blogs</h2>
-        <ul class="blog-list">
-          <li class="blog-item">
-            <a class="blog-title" href="https://dangiyash.hashnode.dev/genai-and-future" target="_blank">GenAI - Present & Ahead.</a>
-          </li>
-          <li class="blog-item">
-            <a class="blog-title" href="https://dangiyash.hashnode.dev/the-right-ui" target="_blank">The Right UI? </a>
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h2>Projects</h2>
-        <ul class="project-list">
-          <li class="project-item">
-            <a class="project-title" href="https://github.com/dangiyash/roadmap-master" target="_blank">Roadmap Master</a>
-            <div class="project-desc">A comprehensive roadmap and resource guide for mastering programming and development skills. Built Under BOLT Hackathon</div>
-          </li>
-          <li class="project-item">
-            <a class="project-title" href="https://github.com/dangiyash/padhAI-v1" target="_blank">Padh AI</a>
-            <div class="project-desc">Personalised Aptitude Development Helper AI with dynamic, AI-generated assessments and curated resources. Built under Hackhazards-25</div>
-          </li>
-          <li class="project-item">
-            <a class="project-title" href="https://github.com/dangiyash/hack-the-future-2025-iit" target="_blank">Legacy PDF table extraction</a>
-            <div class="project-desc">A tool to extract tables from PDFs/images, store them in JSON, and enable LLM-powered RAG for querying. Finalist, Ministry of Statistics and Programme Implementation.</div>
-          </li>
-          <li class="project-item">
-            <a class="project-title" href="https://github.com/dangiyash/ERP-APIs" target="_blank">Personal ERP Client</a>
-            <div class="project-desc">A client and API suite for college student info portal.</div>
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h2>Recent Events</h2>
-        <div class="events-scroll-container">
-          <div class="events-scroll-content">
-            <div class="event-item">Hack The Future, IIT Gandhinagar <b>Finalist</b> (Top 20 of 1000+ teams)</div>
-            <div class="event-item">Goldman Sachs India Hackathon <b>All India Rank 237</b></div>
-            <div class="event-item">Namespace Hackhazards <b>Built PadhAI</b> under Top 100 projects</div>
-            <div class="event-item">SuRaksha Cyber Hackathon <b>Shortlisted Top 100</b> of 6000+ teams</div>
-            <!-- Duplicate items for seamless loop -->
-            <div class="event-item">Hack The Future, IIT Gandhinagar <b>Finalist</b> (Top 20 of 1000+ teams)</div>
-            <div class="event-item">Goldman Sachs India Hackathon <b>All India Rank 237</b></div>
-            <div class="event-item">Namespace Hackhazards <b>Built PadhAI</b> under Top 100 projects</div>
-            <div class="event-item">SuRaksha Cyber Hackathon <b>Shortlisted Top 100</b> of 6000+ teams</div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <h2>Experience</h2>
-        <div class="timeline">
-          <div class="timeline-item exp-dropdown">
-            <div class="exp-dropdown-title" onclick="toggleExpDropdown(this)">
-              <span class="exp-caret">&#9654;</span>
-              <span class="exp-role">Sponsorship Executive</span> <span class="exp-org">Tooryanaad MANIT</span> <span style="float:right; color:var(--retro-link);">Apr 2023 - Sep 2024</span>
-            </div>
-            <div class="exp-dropdown-content" style="display:none; margin-top:0.5em;">
-              Directly connected with various stakeholders to bring sponsorships for central India's largest Hindi Fest. Worked with the team to manage various processes, contacting and connecting with company leads and explaining the idea.
-            </div>
-          </div>
-          <div class="timeline-item exp-dropdown">
-            <div class="exp-dropdown-title" onclick="toggleExpDropdown(this)">
-              <span class="exp-caret">&#9654;</span>
-              <span class="exp-role">Web Developer</span> <span class="exp-org">Compass Interactives</span> <span style="float:right; color:var(--retro-link);">Jan 2025 - Current</span>
-            </div>
-            <div class="exp-dropdown-content" style="display:none; margin-top:0.5em;">
-              Building tailored web solutions for clients and internal projects. Contributing to tech blogs, exploring emerging technologies and sharing development insights.
-            </div>
-          </div>
-          <div class="timeline-item exp-dropdown">
-            <div class="exp-dropdown-title" onclick="toggleExpDropdown(this)">
-              <span class="exp-caret">&#9654;</span>
-              <span class="exp-role">Debator</span> <span class="exp-org">DebSoc MANIT</span> <span style="float:right; color:var(--retro-link);">2025 - Present</span>
-            </div>
-            <div class="exp-dropdown-content" style="display:none; margin-top:0.5em;">
-              Showcasing communication skills through active participation in debates and discussions. Engaging in intellectual discourse and developing persuasive argumentation abilities.
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
-  <footer style="text-align:center; color:var(--retro-muted); font-size:0.95em; margin-bottom:1.5em; margin-top:2em; opacity:0.9; font-family: var(--font-main); position:relative;z-index:1;">
-    <div style="display:flex;align-items:center;justify-content:center;gap:0.5em;font-size:1.2rem;line-height:1.2;white-space:nowrap;overflow-x:auto;">
-      <span style="flex:1;border-bottom:1.5px solid #b7a99a;height:0.7em;min-width:30px;"></span>
-      <span style="display:inline-flex;align-items:center;justify-content:center;">
-        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" style="vertical-align:middle;">
-          <circle cx="16" cy="16" r="14" stroke="#b7a99a" stroke-width="2" fill="#fffbe7"/>
-          <circle cx="16" cy="16" r="9" stroke="#d32f2f" stroke-width="2" fill="#fff"/>
-          <circle cx="16" cy="16" r="5" fill="#ffe082" stroke="#d32f2f" stroke-width="1.5"/>
-          <g stroke="#d32f2f" stroke-width="1.2">
-            <line x1="16" y1="2" x2="16" y2="7"/>
-            <line x1="16" y1="25" x2="16" y2="30"/>
-            <line x1="2" y1="16" x2="7" y2="16"/>
-            <line x1="25" y1="16" x2="30" y2="16"/>
-            <line x1="7.5" y1="7.5" x2="11" y2="11"/>
-            <line x1="24.5" y1="7.5" x2="21" y2="11"/>
-            <line x1="7.5" y1="24.5" x2="11" y2="21"/>
-            <line x1="24.5" y1="24.5" x2="21" y2="21"/>
-          </g>
+    <div class="social">
+      <a href="mailto:yashdangipcmjee@gmail.com" target="_blank" title="Email">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
         </svg>
-      </span>
-      <span style="flex:1;border-bottom:1.5px solid #b7a99a;height:0.7em;min-width:30px;"></span>
+      </a>
+      <a href="https://github.com/dangiyash" target="_blank" title="GitHub">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/yash-dangi-769b7428b/" target="_blank" title="LinkedIn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      </a>
     </div>
-    <div style="margin:0.7em 0 0.2em 0;font-size:0.98em;color:#a08c7a;">
-      "Sometimes you gotta run before you can walk."<br>
-      <span style="font-size:0.93em;">— Iron Man (Tony Stark)</span>
-    </div>
-    <div style="margin-top:0.7em;">
-      &copy; 2025 Yash Dangi | <span style="color:var(--retro-link);">dangiyash.tech</span>
-    </div>
+  </header>
+
+  <main class="layout">
+    <section class="intro">
+      I'm a student and problem solver. I love building things, working on challenging problems, and exploring new technologies.
+    </section>
+
+
+    <section class="section">
+      <h2 class="section-title">Blogs</h2>
+      <div class="blog-item"><a href="https://dangiyash.hashnode.dev/genai-and-future" target="_blank">GenAI - Present & Ahead.</a></div>
+      <div class="blog-item"><a href="https://dangiyash.hashnode.dev/the-right-ui" target="_blank">The Right UI?</a></div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Projects</h2>
+      <div class="project-item">
+        <h3><a href="https://github.com/dangiyash/hack-the-future-2025-iit" target="_blank">Legacy PDF table extraction</a></h3>
+        <p>A tool to extract tables from PDFs/images, store them in JSON, and enable LLM-powered RAG for querying. Finalist, Ministry of Statistics and Programme Implementation.</p>
+      </div>
+      <div class="project-item">
+        <h3><a href="https://github.com/dangiyash/memux" target="_blank">MEMUX</a></h3>
+        <p>Monorepo for MEMUX by team convulsions — built for the AMD Slingshot Hackathon. Rethinking everyday workflows for students, researchers, and early professionals.</p>
+      </div>
+      <div class="project-item">
+        <h3><a href="https://github.com/dangiyash/behavioral-auth-lab" target="_blank">CYPHER</a></h3>
+        <p>Behavioral Biometrics Authentication Engine — uses typing rhythm, mouse speed, and touch pressure with a Naive Bayes classifier for continuous authentication.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Achievements</h2>
+      <div class="events-list">
+        <div class="event">Hack The Future, IIT Gandhinagar <b>Finalist</b> (Top 20 of 1000+ teams)</div>
+        <div class="event">Goldman Sachs India Hackathon <b>All India Rank 237</b></div>
+        <div class="event">Namespace Hackhazards <b>Built PadhAI</b> under Top 100 projects</div>
+        <div class="event">SuRaksha Cyber Hackathon <b>Shortlisted Top 100</b> of 6000+ teams</div>
+        <div class="event">AMD Reinforcement Learning Hackathon (IIT Delhi) <b>Finalist</b> among 240+ teams</div>
+        <div class="event">AMD Slingshot Hackathon <b>Regional Winner</b></div>
+      </div>
+    </section>
+
+
+
+
+  </main>
+
+  <footer>
+    &copy; 2025 Yash Dangi
   </footer>
+
   <script>
-    // Contact form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const status = document.getElementById('form-status');
-      status.textContent = 'Submitting...';
+    function toggleExp(el) {
+      const content = el.nextElementSibling;
+      content.classList.toggle('open');
+    }
 
-      // Gather form data
-      const formData = {
-        name: form.name.value,
-        email: form.email.value,
-        message: form.message.value
-      };
 
-      // Send POST request to Google Apps Script
-      fetch('https://script.google.com/macros/s/AKfycbzq4OsZNWRm6tEdOYkFdwX0UFs0G2g2GADcVFygEQPr8Bw4M-H78p8JuR4ELpMhqVYhKQ/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-      .then(response => {
-        if (response.ok) {
-          status.textContent = 'Thank you for reaching out!';
-          form.reset();
-        } else {
-          status.textContent = 'There was an error. Please try again later.';
-        }
-      })
-      .catch(() => {
-        status.textContent = 'There was an error. Please try again later.';
-      });
-    });
-
-    // Blog open/close logic
-    const blogPosts = {
-      blog1: {
-        title: 'How I Built PADH AI: From Idea to Launch',
-        content: `<button class="blog-back-btn" onclick="showMainContent()">&larr; Back</button>
-          <h2>How I Built PADH AI: From Idea to Launch</h2>
-          <p><b>Date:</b> May 2024</p>
-          <p>This post details the journey of building PADH AI, a personalized AI-powered learning assistant. From ideation, tech stack selection (Next.js, Gemini API, MongoDB), to deployment and user feedback, I share the challenges, solutions, and lessons learned. <br><br>Key highlights include dynamic assessment generation, integrating trusted resources, and ensuring scalability for real-world use.</p>
-          <p><i>Stay tuned for code snippets and more technical deep-dives!</i></p>`
-      },
-      blog2: {
-        title: 'Extracting Tables from PDFs with Python',
-        content: `<button class="blog-back-btn" onclick="showMainContent()">&larr; Back</button>
-          <h2>Extracting Tables from PDFs with Python</h2>
-          <p><b>Date:</b> April 2024</p>
-          <p>Learn how to automate table extraction from complex PDFs using Python libraries like PyTesseract, PIL, and FastAPI. This post covers OCR, image preprocessing, and storing results in JSON for further analysis or LLM-powered querying.</p>
-          <ul><li>OCR with PyTesseract</li><li>Image handling with PIL</li><li>API design for automation</li></ul>
-          <p>Includes code samples and performance tips for large-scale document processing.</p>`
-      }
-    };
-    function showBlog(blogKey) {
-      document.getElementById('main-content').style.display = 'none';
-      document.getElementById('blog-content').style.display = 'block';
-      document.getElementById('blog-content').innerHTML = blogPosts[blogKey].content;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    function showMainContent() {
-      document.getElementById('blog-content').style.display = 'none';
-      document.getElementById('main-content').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    document.querySelectorAll('.blog-title[data-blog]').forEach(function(el) {
-      el.addEventListener('click', function(e) {
-        e.preventDefault();
-        showBlog(el.getAttribute('data-blog'));
-      });
-    });
-
-    function toggleExpDropdown(el) {
-      var content = el.nextElementSibling;
-      var caret = el.querySelector('.exp-caret');
-      
-      if (content.style.display === 'none' || content.style.display === '') {
-        content.style.display = 'block';
-        caret.innerHTML = '&#9660;';
-      } else {
-        content.style.display = 'none';
-        caret.innerHTML = '&#9654;';
-      }
-    }
-    
-    // Initialize dropdown functionality when page loads
-    window.addEventListener('load', function() {
-      var dropdownTitles = document.querySelectorAll('.exp-dropdown-title');
-      dropdownTitles.forEach(function(title) {
-        title.addEventListener('click', function(e) {
-          e.preventDefault();
-          toggleExpDropdown(this);
-        });
-      });
-    });
-    
-    // Matrix Glitch Adjective Animation
-    const adjectives = [
-      "problem solver",
-      "developer", 
-      "student",
-      "innovator",
-      "creator",
-      "thinker",
-      "builder",
-      "learner"
-    ];
-    
-    const matrixAsciiChars = ['@', '#', '$', '%', '&', '*', '!', '?', '~', '^', '`', '|', '/', '\\', '+', '=', '<', '>', '[', ']', '{', '}', ';', ':', '"', "'", ',', '.', '-', '_'];
-    
-    let currentAdjIndex = 0;
-    const adjElement = document.getElementById('dynamic-adjective');
-    
-    function generateRandomASCII(length) {
-      let result = '';
-      for (let i = 0; i < length; i++) {
-        result += matrixAsciiChars[Math.floor(Math.random() * matrixAsciiChars.length)];
-      }
-      return result;
-    }
-    
-    function matrixGlitchEffect() {
-      const currentText = adjElement.textContent;
-      const textLength = currentText.length;
-      
-      // Start glitch effect
-      adjElement.classList.add('glitching');
-      adjElement.setAttribute('data-text', currentText);
-      
-      // Corrupt to ASCII
-      let corruptionSteps = 0;
-      const maxCorruptionSteps = 8;
-      
-      const corruptionInterval = setInterval(() => {
-        if (corruptionSteps >= maxCorruptionSteps) {
-          clearInterval(corruptionInterval);
-          
-          // Change to next adjective
-          currentAdjIndex = (currentAdjIndex + 1) % adjectives.length;
-          adjElement.textContent = adjectives[currentAdjIndex];
-          adjElement.setAttribute('data-text', adjectives[currentAdjIndex]);
-          
-          // Stop glitching
-          setTimeout(() => {
-            adjElement.classList.remove('glitching');
-          }, 500);
-          
-          return;
-        }
-        
-        // Generate random ASCII corruption
-        adjElement.textContent = generateRandomASCII(textLength);
-        corruptionSteps++;
-      }, 100);
-    }
-    
-    // Start the matrix glitch effect immediately
-    matrixGlitchEffect(); // Trigger first effect immediately
-    setInterval(matrixGlitchEffect, 3000); // Change adjective every 3 seconds
-    
-    // Add event listeners for experience dropdowns as backup
-    document.addEventListener('DOMContentLoaded', function() {
-      const dropdownTitles = document.querySelectorAll('.exp-dropdown-title');
-      dropdownTitles.forEach(function(title) {
-        title.addEventListener('click', function() {
-          toggleExpDropdown(this);
-        });
-      });
-    });
   </script>
 </body>
-</html> 
+</html>
